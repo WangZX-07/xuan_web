@@ -1,0 +1,17 @@
+{
+  "name": "@lungtic/admin-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "vue-tsc -b --pretty false"
+  },
+  "dependencies": {
+    "lucide-vue-next": "^0.544.0",
+    "vue": "^3.5.43",
+    "vue-router": "^4.6.3"
+  }
+}

@@ -1,0 +1,2 @@
+# Confirm the systemctl path with: command -v systemctl
+lungtic-deploy ALL=(root) NOPASSWD: /usr/bin/systemctl restart lungtic-control.service

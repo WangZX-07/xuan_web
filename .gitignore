@@ -1,0 +1,56 @@
+# Dependencies and build output
+node_modules/
+.venv/
+dist/
+build/
+coverage/
+.coverage
+.font-work/
+.lighthouse-*.json
+.vite/
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.tsbuildinfo
+.pytest_cache/
+.pytest-tmp/
+.mypy_cache/
+.ruff_cache/
+playwright-report/
+test-results/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime data (never commit)
+data/
+uploads/
+releases/
+backups/
+runtime/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.exe
+
+# Design-review runtime only
+.review-runtime/
+design-review/captures/
+design-review/renders/segments/
+
+# Tooling and editor files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Local deployment state
+deploy/.current-release
+deploy/.previous-release

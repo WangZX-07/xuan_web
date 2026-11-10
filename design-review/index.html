@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>朗泰 LungTic · UI 设计审核</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v2h14v-2" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="M12 7v5l3 2" /></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-4" /></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m4 9 8-5 8 5-8 5-8-5Z" /><path d="m4 13 8 5 8-5m-16 4 8 5 8-5" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z" /></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M3 12s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6Z" /><circle cx="12" cy="12" r="2.5" /></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" /><path d="m4 7.5 8 4.5 8-4.5M12 12v9" /></symbol>
+      <symbol id="i-path" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2" /><circle cx="18" cy="6" r="2" /><path d="M7.5 16.5c2-2 1.5-5 4-6.5 1.5-1 3.5-.5 5-2.5" /></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z" /><path d="M14 3v5h5M9 13h6m-6 4h6" /></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5m0 0L8 9m4-4 4 4" /><path d="M5 16v4h14v-4" /></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2" /></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6" /></symbol>
+      <symbol id="i-content" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" /></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2 6M4 11V6m0 5h5" /><path d="M12 7v5l3 2" /></symbol>
+      <symbol id="i-audit" viewBox="0 0 24 24"><path d="M7 4h10v17H7zM9 4V2h6v2M10 9h4m-4 4h4m-4 4h3" /></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19 13.5v-3l-2-.7-.6-1.4.9-2-2.1-2.1-2 .9-1.4-.6L10.5 2h-3l-.7 2.1-1.4.6-2-.9-2.1 2.1.9 2-.6 1.4L0 10.5v3l2.1.7.6 1.4-.9 2 2.1 2.1 2-.9 1.4.6.7 2.1h3l.7-2.1 1.4-.6 2 .9 2.1-2.1-.9-2 .6-1.4 2.1-.7Z" transform="translate(2 -0.5) scale(.82)" /></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16 16 5 5" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6" /></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></symbol>
+      <symbol id="i-diff" viewBox="0 0 24 24"><path d="M8 4v16m8-16v16M4 8h8m0 8H4m8-8h8m-8 8h8" /></symbol>
+    </svg>
+
+    <header class="review-toolbar" data-review-only>
+      <div>
+        <strong>朗泰 LungTic · UI 审核</strong>
+        <span>高保真设计稿 · 非生产界面</span>
+      </div>
+      <nav aria-label="设计稿页面">
+        <button type="button" data-target="public-desktop">官网 1440</button>
+        <button type="button" data-target="public-mobile">官网 390</button>
+        <button type="button" data-target="admin-overview">管理台总览</button>
+        <button type="button" data-target="admin-upload">上传安装包</button>
+        <button type="button" data-target="admin-releases">版本列表</button>
+        <button type="button" data-target="admin-cms">CMS 编辑器</button>
+        <button type="button" data-target="admin-history">发布记录</button>
+      </nav>
+    </header>
+
+    <main class="review-stage" id="review-stage">
+      <section class="review-screen public-desktop" data-screen="public-desktop" aria-label="公共官网桌面设计稿"></section>
+      <section class="review-screen public-mobile" data-screen="public-mobile" aria-label="公共官网手机设计稿"></section>
+
+      <section class="review-screen admin-screen" data-screen="admin-overview" aria-label="管理台总览设计稿">
+        <div class="admin-shell">
+          <aside class="admin-sidebar">
+            <div class="admin-brand"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></div>
+            <nav>
+              <a class="active" href="#"><svg><use href="#i-chart" /></svg>总览</a>
+              <a href="#"><svg><use href="#i-upload" /></svg>安装包发布</a>
+              <a href="#"><svg><use href="#i-content" /></svg>官网内容</a>
+              <a href="#"><svg><use href="#i-history" /></svg>发布记录</a>
+              <a href="#"><svg><use href="#i-audit" /></svg>审计日志</a>
+            </nav>
+            <div class="admin-sidebar-bottom"><a href="#"><svg><use href="#i-settings" /></svg>系统设置</a><p>控制服务 <span class="health-dot"></span> 正常</p></div>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar"><div><span>管理控制台</span><span class="env-chip">本地审核环境</span></div><div class="admin-user"><span class="feishu-mark">飞</span><div><b>发布者</b><small>指定部门成员</small></div><svg><use href="#i-chevron" /></svg></div></header>
+            <div class="admin-content">
+              <div class="page-heading"><div><h1>总览</h1><p>内容、版本与发布任务的统一状态。</p></div><button class="admin-primary"><svg><use href="#i-upload" /></svg>上传新版本</button></div>
+              <div class="status-ledger">
+                <article><span>官网内容</span><strong>3 项草稿待发布</strong><small>最后保存于 10 分钟前</small><a href="#">继续编辑 <svg><use href="#i-arrow" /></svg></a></article>
+                <article><span>当前体验版</span><strong>v0.1.0 · Windows x64</strong><small>2026-09-21 发布</small><a href="#">查看版本 <svg><use href="#i-arrow" /></svg></a></article>
+                <article><span>发布任务</span><strong>1 项等待确认</strong><small>文件扫描已完成</small><a href="#">处理任务 <svg><use href="#i-arrow" /></svg></a></article>
+                <article class="muted-ledger"><span>线上统计</span><strong>备案后开始记录</strong><small>不使用第三方分析平台</small><a href="#">查看策略 <svg><use href="#i-arrow" /></svg></a></article>
+              </div>
+
+              <div class="admin-grid admin-grid-overview">
+                <section class="admin-panel task-panel">
+                  <div class="panel-title"><div><h2>正在进行</h2><p>上传、校验、扫描和发布任务</p></div><button class="icon-button" aria-label="更多"><svg><use href="#i-more" /></svg></button></div>
+                  <div class="task-row"><span class="task-icon is-blue"><svg><use href="#i-shield" /></svg></span><div><strong>LungTic-TICI-Viewer-0.2.0-Setup.exe</strong><small>SHA-256 已计算 · ClamAV 扫描通过</small></div><span class="status success"><svg><use href="#i-check" /></svg>等待发布确认</span></div>
+                  <div class="task-row"><span class="task-icon"><svg><use href="#i-content" /></svg></span><div><strong>官网内容草稿</strong><small>首屏文案、工作流与安全声明已修改</small></div><span class="status warning"><svg><use href="#i-clock" /></svg>3 项检查待处理</span></div>
+                  <div class="empty-inline"><svg><use href="#i-activity" /></svg><span>当前没有上传或扫描中的任务</span></div>
+                </section>
+                <section class="admin-panel health-panel">
+                  <div class="panel-title"><div><h2>服务与备份</h2><p>部署后从控制服务读取</p></div><span class="status neutral">审核数据</span></div>
+                  <dl><div><dt>控制服务</dt><dd><span class="health-dot"></span> 本机正常</dd></div><div><dt>ClamAV</dt><dd>待生产接入</dd></div><div><dt>数据库备份</dt><dd>待部署后验证</dd></div><div><dt>数据磁盘</dt><dd>待服务器接入</dd></div></dl>
+                  <div class="admin-note"><svg><use href="#i-lock" /></svg><p><strong>9100 仅监听本机</strong><br />外部访问统一经过 Nginx 80 / 443。</p></div>
+                </section>
+              </div>
+
+              <section class="admin-panel audit-preview">
+                <div class="panel-title"><div><h2>最近操作</h2><p>不可修改的审计记录</p></div><a href="#">查看全部</a></div>
+                <table><thead><tr><th>时间</th><th>操作</th><th>对象</th><th>操作者</th><th>结果</th></tr></thead><tbody><tr><td>今天 14:32</td><td>完成恶意文件扫描</td><td>v0.2.0 安装包</td><td>系统任务</td><td><span class="status success">成功</span></td></tr><tr><td>今天 14:28</td><td>上传安装包</td><td>v0.2.0 草稿</td><td>飞书成员 · 发布者</td><td><span class="status success">成功</span></td></tr><tr><td>今天 13:54</td><td>保存内容草稿</td><td>官网首页</td><td>飞书成员 · 编辑者</td><td><span class="status neutral">已保存</span></td></tr></tbody></table>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-screen admin-screen" data-screen="admin-upload" aria-label="安装包上传设计稿">
+        <div class="admin-shell">
+          <aside class="admin-sidebar">
+            <div class="admin-brand"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></div>
+            <nav><a href="#"><svg><use href="#i-chart" /></svg>总览</a><a class="active" href="#"><svg><use href="#i-upload" /></svg>安装包发布</a><a href="#"><svg><use href="#i-content" /></svg>官网内容</a><a href="#"><svg><use href="#i-history" /></svg>发布记录</a><a href="#"><svg><use href="#i-audit" /></svg>审计日志</a></nav>
+            <div class="admin-sidebar-bottom"><a href="#"><svg><use href="#i-settings" /></svg>系统设置</a><p>控制服务 <span class="health-dot"></span> 正常</p></div>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar"><div><span>管理控制台</span><span class="env-chip">本地审核环境</span></div><div class="admin-user"><span class="feishu-mark">飞</span><div><b>发布者</b><small>指定部门成员</small></div><svg><use href="#i-chevron" /></svg></div></header>
+            <div class="admin-content upload-content">
+              <div class="page-heading"><div><a class="back-link" href="#">‹ 返回版本列表</a><h1>上传新版本</h1><p>文件发布前必须完成服务端校验和 ClamAV 扫描。</p></div><span class="draft-indicator"><svg><use href="#i-check" /></svg>草稿已自动保存</span></div>
+              <ol class="release-steps"><li class="done"><span>1</span><div><b>版本信息</b><small>已填写</small></div></li><li class="active"><span>2</span><div><b>上传与校验</b><small>进行中</small></div></li><li><span>3</span><div><b>扫描确认</b><small>等待</small></div></li><li><span>4</span><div><b>发布</b><small>等待</small></div></li></ol>
+              <div class="admin-grid upload-grid">
+                <section class="admin-panel release-form">
+                  <div class="panel-title"><div><h2>版本信息</h2><p>用于官网下载区和版本记录</p></div><button class="text-button">编辑</button></div>
+                  <div class="field-grid"><label>版本号<input value="0.2.0" /></label><label>发布渠道<select><option>体验版</option></select></label><label>适用平台<select><option>Windows x64</option></select></label><label>发布日期<input value="发布时自动生成" disabled /></label></div>
+                  <label class="textarea-field">发布说明<textarea>优化 TICI 文件加载与多时相浏览；补充合成数据标识与查看边界说明。</textarea><small>官网公开展示前仍可修改。</small></label>
+                </section>
+                <section class="admin-panel uploader-panel">
+                  <div class="panel-title"><div><h2>安装包</h2><p>支持分块上传、断线续传与取消</p></div><span class="status neutral">.exe</span></div>
+                  <div class="upload-file"><span class="file-square"><svg><use href="#i-file" /></svg></span><div class="upload-file-info"><strong>LungTic-TICI-Viewer-0.2.0-Setup.exe</strong><small>141.2 MB · Windows 可执行文件</small><div class="progress-track"><span style="width: 68%"></span></div><div class="progress-meta"><b>68% · 96.0 MB / 141.2 MB</b><span>8.4 MB/s · 约 6 秒</span></div></div><button class="icon-button" aria-label="取消上传">×</button></div>
+                  <div class="resume-note"><svg><use href="#i-shield" /></svg><p><strong>离开页面不会丢失进度</strong><br />重新选择同一文件后，将从已确认分块继续。</p></div>
+                  <div class="validation-list"><div class="complete"><svg><use href="#i-check" /></svg><span><b>扩展名与真实 MIME</b><small>已通过</small></span></div><div class="complete"><svg><use href="#i-check" /></svg><span><b>PE 文件头</b><small>已通过</small></span></div><div class="pending"><svg><use href="#i-clock" /></svg><span><b>服务端 SHA-256</b><small>上传完成后计算</small></span></div><div class="pending"><svg><use href="#i-clock" /></svg><span><b>ClamAV 扫描</b><small>等待完整文件</small></span></div></div>
+                </section>
+              </div>
+              <div class="sticky-actions"><div><svg><use href="#i-lock" /></svg><span>未完成校验与扫描前无法进入发布确认。</span></div><div><button class="admin-secondary">保存并退出</button><button class="admin-primary" disabled>继续：扫描确认</button></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-screen admin-screen" data-screen="admin-releases" aria-label="安装包版本列表设计稿">
+        <div class="admin-shell">
+          <aside class="admin-sidebar">
+            <div class="admin-brand"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></div>
+            <nav><a href="#"><svg><use href="#i-chart" /></svg>总览</a><a class="active" href="#"><svg><use href="#i-upload" /></svg>安装包发布</a><a href="#"><svg><use href="#i-content" /></svg>官网内容</a><a href="#"><svg><use href="#i-history" /></svg>发布记录</a><a href="#"><svg><use href="#i-audit" /></svg>审计日志</a></nav>
+            <div class="admin-sidebar-bottom"><a href="#"><svg><use href="#i-settings" /></svg>系统设置</a><p>控制服务 <span class="health-dot"></span> 正常</p></div>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar"><div><span>管理控制台</span><span class="env-chip">本地审核环境</span></div><div class="admin-user"><span class="feishu-mark">飞</span><div><b>发布者</b><small>指定部门成员</small></div><svg><use href="#i-chevron" /></svg></div></header>
+            <div class="admin-content">
+              <div class="page-heading"><div><h1>安装包版本</h1><p>管理官网公开的独立 TICI Viewer；临床客户端不在此发布。</p></div><button class="admin-primary"><svg><use href="#i-upload" /></svg>上传新版本</button></div>
+              <section class="current-release"><div class="release-mark"><svg><use href="#i-download" /></svg></div><div><span>当前官网版本</span><h2>v0.1.0 · Windows x64</h2><p>LungTic-TICI-Viewer-0.1.0-Setup.exe · 141.2 MB</p></div><dl><div><dt>发布日期</dt><dd>2026-09-21</dd></div><div><dt>SHA-256</dt><dd class="mono">f2c4…7ad1</dd></div><div><dt>下载统计</dt><dd>备案上线后记录</dd></div></dl><button class="admin-secondary">查看详情</button></section>
+              <div class="table-toolbar"><div class="search-box"><svg><use href="#i-search" /></svg><input placeholder="搜索版本号或文件名" /></div><select><option>全部状态</option></select><select><option>全部渠道</option></select><span class="table-count">共 3 个版本</span></div>
+              <section class="admin-panel release-table-panel">
+                <table class="release-table"><thead><tr><th>版本</th><th>状态</th><th>平台 / 渠道</th><th>文件</th><th>校验与扫描</th><th>更新时间</th><th></th></tr></thead><tbody>
+                  <tr><td><strong>v0.2.0</strong><small>上传草稿</small></td><td><span class="status warning"><svg><use href="#i-clock" /></svg>待发布确认</span></td><td>Windows x64<br /><small>体验版</small></td><td>141.2 MB<br /><small class="mono">LungTic-TICI…Setup.exe</small></td><td><span class="check-line"><svg><use href="#i-check" /></svg>SHA-256</span><span class="check-line"><svg><use href="#i-check" /></svg>ClamAV</span></td><td>今天 14:32<br /><small>飞书成员 · 发布者</small></td><td><button class="icon-button"><svg><use href="#i-more" /></svg></button></td></tr>
+                  <tr class="is-current"><td><strong>v0.1.0</strong><small>当前官网版本</small></td><td><span class="status success"><svg><use href="#i-check" /></svg>已发布</span></td><td>Windows x64<br /><small>体验版</small></td><td>141.2 MB<br /><small class="mono">LungTic-TICI…Setup.exe</small></td><td><span class="check-line"><svg><use href="#i-check" /></svg>SHA-256</span><span class="check-line"><svg><use href="#i-check" /></svg>ClamAV</span></td><td>2026-09-21<br /><small>飞书成员 · 发布者</small></td><td><button class="icon-button"><svg><use href="#i-more" /></svg></button></td></tr>
+                  <tr><td><strong>v0.0.9</strong><small>历史版本</small></td><td><span class="status neutral">已归档</span></td><td>Windows x64<br /><small>内部预览</small></td><td>138.7 MB<br /><small class="mono">LungTic-TICI…Setup.exe</small></td><td><span class="check-line"><svg><use href="#i-check" /></svg>SHA-256</span><span class="check-line"><svg><use href="#i-check" /></svg>ClamAV</span></td><td>2026-09-12<br /><small>飞书成员 · 所有者</small></td><td><button class="icon-button"><svg><use href="#i-more" /></svg></button></td></tr>
+                </tbody></table>
+              </section>
+              <p class="privacy-footnote"><svg><use href="#i-shield" /></svg>下载统计只保留版本、日期、结果和流量汇总，不长期保存下载者原始 IP。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-screen admin-screen" data-screen="admin-cms" aria-label="CMS 编辑器设计稿">
+        <div class="admin-shell">
+          <aside class="admin-sidebar">
+            <div class="admin-brand"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></div>
+            <nav><a href="#"><svg><use href="#i-chart" /></svg>总览</a><a href="#"><svg><use href="#i-upload" /></svg>安装包发布</a><a class="active" href="#"><svg><use href="#i-content" /></svg>官网内容</a><a href="#"><svg><use href="#i-history" /></svg>发布记录</a><a href="#"><svg><use href="#i-audit" /></svg>审计日志</a></nav>
+            <div class="admin-sidebar-bottom"><a href="#"><svg><use href="#i-settings" /></svg>系统设置</a><p>控制服务 <span class="health-dot"></span> 正常</p></div>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar"><div><span>管理控制台</span><span class="env-chip">本地审核环境</span></div><div class="admin-user"><span class="feishu-mark">飞</span><div><b>编辑者</b><small>指定部门成员</small></div><svg><use href="#i-chevron" /></svg></div></header>
+            <div class="cms-toolbar"><div><a class="back-link" href="#">官网内容</a><span>/</span><strong>首页</strong><span class="status warning">3 项未发布修改</span></div><div><span class="autosave"><svg><use href="#i-check" /></svg>已自动保存</span><button class="admin-secondary">预览</button><button class="admin-primary">提交发布检查</button></div></div>
+            <div class="cms-workspace">
+              <aside class="cms-outline"><div class="outline-title"><b>页面结构</b><button class="icon-button"><svg><use href="#i-more" /></svg></button></div><ol><li class="active"><span>首屏</span><small>显示</small></li><li><span>产品能力</span><small>显示</small></li><li><span>工作流</span><small>显示</small></li><li><span>TICI 专题</span><small>显示</small></li><li><span>项目进展</span><small>显示</small></li><li><span>安全边界</span><small>必填</small></li><li><span>项目背景</span><small>显示</small></li><li><span>下载区</span><small>显示</small></li><li><span>页脚</span><small>显示</small></li></ol><div class="outline-lock"><svg><use href="#i-lock" /></svg><p>布局结构固定<br /><small>不可插入 HTML 或脚本</small></p></div></aside>
+              <main class="cms-editor">
+                <div class="editor-heading"><div><h1>首屏</h1><p>访问者在 10 秒内看到的主张与产品证据。</p></div><label class="toggle"><input type="checkbox" checked /><span></span>显示栏目</label></div>
+                <div class="editor-section"><label>主标题 <span>必填</span><textarea rows="2">让呼吸运动不再成为精准放疗的盲区</textarea><small>24 / 36 字</small></label><label>辅助说明 <span>必填</span><textarea rows="3">把多时相影像、靶区复核、IGTV 与运动分析放进一条可追溯的 4D 放疗辅助工作流。</textarea><small>48 / 90 字</small></label><div class="field-grid"><label>主按钮文字<input value="下载体验版" /></label><label>主按钮行为<select><option>下载当前体验版</option></select></label></div></div>
+                <div class="editor-section"><div class="section-mini-title"><div><b>产品工作台图片</b><p>必须为真实软件截图；合成数据需在图片附近标注。</p></div><button class="text-button">替换图片</button></div><div class="asset-row"><img src="assets/real-tici-workbench.png" alt="真实 TICI Viewer 工作台，显示合成肺部样例" /><div><strong>real-tici-workbench.png</strong><small>1400 × 900 · PNG</small><span class="status success"><svg><use href="#i-check" /></svg>真实软件截图</span></div><button class="icon-button"><svg><use href="#i-more" /></svg></button></div><label>替代文本 <span>必填</span><input value="LungTic TICI Viewer 工作台，正在查看明确标注的合成肺部时序样例" /><small>避免写“图片”或堆叠关键词；说明画面和合成数据属性。</small></label></div>
+              </main>
+              <aside class="cms-preview"><div class="preview-heading"><b>实时预览</b><div><button class="device-button active">桌面</button><button class="device-button">手机</button></div></div><div class="mini-site"><div class="mini-nav"><img src="assets/lungtic-logo.jpg" alt="" /><span>LungTic</span><i></i></div><h2>让呼吸运动不再成为<br />精准放疗的盲区</h2><p>把多时相影像、靶区复核、IGTV 与运动分析放进一条可追溯的 4D 放疗辅助工作流。</p><button>下载体验版</button><div class="mini-screen"><img src="assets/real-tici-workbench.png" alt="" /><span>合成演示数据 · 非患者影像</span></div></div><div class="validation-panel"><h3>发布前检查 <span>3 项</span></h3><ul><li class="pass"><svg><use href="#i-check" /></svg>安全声明已填写</li><li class="pass"><svg><use href="#i-check" /></svg>图片替代文本完整</li><li class="warn"><svg><use href="#i-clock" /></svg>“IGTV”栏目状态需确认</li><li class="warn"><svg><use href="#i-clock" /></svg>存在 1 个未验证数字</li><li class="warn"><svg><use href="#i-clock" /></svg>下载版本尚未发布</li></ul></div></aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-screen admin-screen" data-screen="admin-history" aria-label="内容发布记录设计稿">
+        <div class="admin-shell">
+          <aside class="admin-sidebar">
+            <div class="admin-brand"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></div>
+            <nav><a href="#"><svg><use href="#i-chart" /></svg>总览</a><a href="#"><svg><use href="#i-upload" /></svg>安装包发布</a><a href="#"><svg><use href="#i-content" /></svg>官网内容</a><a class="active" href="#"><svg><use href="#i-history" /></svg>发布记录</a><a href="#"><svg><use href="#i-audit" /></svg>审计日志</a></nav>
+            <div class="admin-sidebar-bottom"><a href="#"><svg><use href="#i-settings" /></svg>系统设置</a><p>控制服务 <span class="health-dot"></span> 正常</p></div>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar"><div><span>管理控制台</span><span class="env-chip">本地审核环境</span></div><div class="admin-user"><span class="feishu-mark">飞</span><div><b>发布者</b><small>指定部门成员</small></div><svg><use href="#i-chevron" /></svg></div></header>
+            <div class="admin-content history-content">
+              <div class="page-heading"><div><h1>官网发布记录</h1><p>每次发布生成不可变版本，可比较并回滚。</p></div><button class="admin-secondary"><svg><use href="#i-diff" /></svg>比较两个版本</button></div>
+              <div class="history-layout">
+                <section class="version-timeline">
+                  <article class="current"><span class="timeline-dot"><svg><use href="#i-check" /></svg></span><div class="version-card"><header><div><strong>内容版本 #12</strong><span class="status success">当前线上版本</span></div><time>2026-09-21 15:06</time></header><p>完成安全声明核验，更新体验版下载说明。</p><dl><div><dt>发布者</dt><dd>飞书成员 · 发布者</dd></div><div><dt>变更栏目</dt><dd>安全边界、下载区</dd></div><div><dt>内容摘要</dt><dd class="mono">sha256: 5e7a…c18f</dd></div></dl><footer><button class="admin-secondary">查看版本</button><button class="text-button">与草稿比较</button></footer></div></article>
+                  <article><span class="timeline-dot">11</span><div class="version-card"><header><div><strong>内容版本 #11</strong><span class="status neutral">历史版本</span></div><time>2026-09-18 20:14</time></header><p>首次加入 TICI 专题和项目进展状态。</p><dl><div><dt>发布者</dt><dd>飞书成员 · 发布者</dd></div><div><dt>变更栏目</dt><dd>TICI、项目进展</dd></div><div><dt>内容摘要</dt><dd class="mono">sha256: c309…5ba2</dd></div></dl><footer><button class="admin-secondary">查看版本</button><button class="text-button">回滚到此版本</button></footer></div></article>
+                  <article><span class="timeline-dot">10</span><div class="version-card"><header><div><strong>内容版本 #10</strong><span class="status neutral">历史版本</span></div><time>2026-09-14 09:42</time></header><p>调整首屏工作台图片与移动端替代文本。</p><dl><div><dt>发布者</dt><dd>飞书成员 · 所有者</dd></div><div><dt>变更栏目</dt><dd>首屏</dd></div><div><dt>内容摘要</dt><dd class="mono">sha256: b81d…91e0</dd></div></dl><footer><button class="admin-secondary">查看版本</button><button class="text-button">回滚到此版本</button></footer></div></article>
+                </section>
+                <aside class="rollback-panel"><svg><use href="#i-history" /></svg><h2>可恢复，不覆盖</h2><p>回滚会从历史版本创建一个新的发布版本，不会修改或删除既有记录。</p><ul><li><svg><use href="#i-check" /></svg>重新执行字段与声明检查</li><li><svg><use href="#i-check" /></svg>要求填写回滚原因</li><li><svg><use href="#i-check" /></svg>记录操作者与内容摘要</li></ul><div class="admin-note"><svg><use href="#i-shield" /></svg><p><strong>发布者可执行回滚</strong><br />永久清理版本仅限所有者。</p></div></aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="public-site-template">
+      <article class="public-site">
+        <header class="site-nav">
+          <a class="site-brand" href="#"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></a>
+          <nav><a href="#capabilities">产品能力</a><a href="#workflow">工作流</a><a href="#tici">TICI</a><a href="#progress">项目进展</a></nav>
+          <a class="nav-download" href="#download"><svg><use href="#i-download" /></svg>下载体验版</a>
+          <button class="mobile-menu" aria-label="打开菜单"><span></span><span></span></button>
+        </header>
+
+        <main>
+          <section class="hero">
+            <div class="hero-copy">
+              <span class="hero-context"><i></i>4D CT 肺肿瘤智能辅助平台 · 科研原型</span>
+              <h1>让呼吸运动不再成为<br />精准放疗的盲区</h1>
+              <p>把多时相影像、靶区复核、IGTV 与运动分析放进一条可追溯的 4D 放疗辅助工作流。</p>
+              <div class="hero-actions"><a class="primary-cta" href="#download"><svg><use href="#i-download" /></svg>下载体验版</a><a class="secondary-cta" href="#workflow">查看完整工作流 <svg><use href="#i-arrow" /></svg></a></div>
+              <p class="hero-boundary"><svg><use href="#i-shield" /></svg>科研原型 · 辅助决策 · 不替代医生 · 不得直接用于患者治疗决策</p>
+            </div>
+            <figure class="hero-workbench">
+              <div class="window-bar"><div><span></span><span></span><span></span></div><strong>LungTic TICI Viewer</strong><small>真实软件界面</small></div>
+              <img src="assets/real-tici-workbench.png" alt="LungTic TICI Viewer 工作台，正在查看明确标注的合成肺部时序样例" />
+              <figcaption><span><svg><use href="#i-check" /></svg>真实软件截图 · 身份区已隐藏</span><span>合成演示数据 · 非患者影像</span></figcaption>
+            </figure>
+            <div class="hero-facts"><span>多时相浏览</span><i></i><span>Mask 叠加</span><i></i><span>Cine 播放</span><i></i><span>元数据核验</span></div>
+          </section>
+
+          <section class="problem-statement">
+            <div class="statement-lead"><span>呼吸不是噪声</span><h2>同一靶区，会随呼吸<br />在不同相位改变位置。</h2></div>
+            <div class="statement-copy"><p>传统单时相观察很难完整呈现运动范围。LungTic 以时间序列为主线，让影像、Mask、IGTV 与轨迹能在同一上下文中被核验。</p><a href="#workflow">从影像到复核，查看过程 <svg><use href="#i-arrow" /></svg></a></div>
+          </section>
+
+          <section class="capabilities" id="capabilities">
+            <div class="section-intro"><h2>不是一个结果框，<br />而是一张可复核的工作台。</h2><p>每项能力都围绕“看见变化、确认来源、回到原始影像”展开。当前公开体验版聚焦 TICI 文件查看。</p></div>
+            <div class="capability-showcase">
+              <ol class="capability-list">
+                <li class="active"><span>01</span><div><h3>多时相浏览</h3><p>按呼吸相位切换影像，保留切片位置与上下文。</p></div><svg><use href="#i-layers" /></svg></li>
+                <li><span>02</span><div><h3>Mask 叠加检查</h3><p>独立控制显隐与透明度，复核每个相位的结构。</p></div><svg><use href="#i-eye" /></svg></li>
+                <li><span>03</span><div><h3>Cine 连续播放</h3><p>以时间顺序观察位移，不把运动压缩成静态数值。</p></div><svg><use href="#i-play" /></svg></li>
+                <li><span>04</span><div><h3>IGTV 与运动分析</h3><p>在科研工作流中组织重建、轨迹和来源信息。</p></div><svg><use href="#i-path" /></svg></li>
+              </ol>
+              <figure class="capability-visual"><img src="assets/synthetic-tici-preview.png" alt="四个呼吸相位的合成肺部 TICI 示例，红色区域为合成靶区" /><figcaption><span>合成 TICI 示例</span><small>只用于格式与界面演示，不用于模型效果评估</small></figcaption></figure>
+            </div>
+          </section>
+
+          <section class="workflow" id="workflow">
+            <div class="section-intro light"><h2>从影像核验到结果复核，<br />每一步都有来处。</h2><p>面向 4D CT 场景组织的研究工作流；状态以当前代码和项目文档为准。</p></div>
+            <ol class="workflow-rail">
+              <li><span>1</span><svg><use href="#i-eye" /></svg><h3>影像核验</h3><p>确认相位、切片、体素间距与来源。</p><b class="state implemented">已实现</b></li>
+              <li><span>2</span><svg><use href="#i-layers" /></svg><h3>辅助勾画</h3><p>组织各相位 Mask 与人工复核入口。</p><b class="state research">研究中</b></li>
+              <li><span>3</span><svg><use href="#i-cube" /></svg><h3>IGTV</h3><p>汇总跨相位靶区并保留生成来源。</p><b class="state research">研究中</b></li>
+              <li><span>4</span><svg><use href="#i-path" /></svg><h3>运动分析</h3><p>表达质心轨迹与时相变化。</p><b class="state research">研究中</b></li>
+              <li><span>5</span><svg><use href="#i-check" /></svg><h3>复核与导出</h3><p>回到原始影像，核验内容与格式。</p><b class="state validation">待验证</b></li>
+            </ol>
+          </section>
+
+          <section class="tici-section" id="tici">
+            <div class="tici-copy"><span class="tici-mark">TICI</span><h2>Time-series Image Continuum</h2><p class="tici-cn">时序影像连续体</p><p>TICI 将多时相影像、可选 Mask、IGTV、轨迹与来源信息组织在同一文件中，让查看、传递和复核围绕时间序列发生。</p><div class="tici-boundary"><svg><use href="#i-shield" /></svg><p><strong>格式边界</strong><br />公开查看器当前以轴位二维阅片为核心，尚未实现 MPR、测量、诊断报告；示例缺少完整医学 affine，不用于临床诊断。</p></div></div>
+            <div class="tici-file"><div class="file-title"><svg><use href="#i-file" /></svg><div><b>synthetic-lung-demo.tici</b><small>合成演示文件 · TICI v1.0</small></div></div><pre><span>/patient</span>
+  patient_id: SYNTHETIC-ONLY
+<span>/study</span>
+  modality: CT-PHANTOM
+  phase_count: 10
+<span>/phases/phase_N</span>
+  images  [Z, H, W]
+  masks   [Z, H, W]
+<span>/igtv</span>  union mask
+<span>/trajectory</span>  centroids
+<span>/provenance</span>
+  source: synthetic_phantom</pre><div class="file-footer"><span>固定文件头</span><code>\x89TICI\r\n\x1a\n</code></div></div>
+          </section>
+
+          <section class="progress-section" id="progress">
+            <div class="section-intro"><h2>把完成度说清楚，<br />比把数字放大更重要。</h2><p>不把研发目标写成既有临床结果，也不展示未经验证的性能指标。</p></div>
+            <div class="progress-table"><div class="progress-head"><span>能力</span><span>当前状态</span><span>证据与边界</span></div><div><b>TICI 独立查看器</b><span class="state implemented">已实现</span><p>可直接打开 TICI，支持多时相、切层、播放、Mask 与元数据核验。</p></div><div><b>辅助勾画与 IGTV</b><span class="state research">研究中</span><p>代码存在研究原型；仍需完整医学坐标、数据治理与临床工作流验证。</p></div><div><b>运动分析与轨迹</b><span class="state research">研究中</span><p>已有数据结构与展示入口；预测表现不作为官网宣传结论。</p></div><div><b>临床有效性与泛化</b><span class="state validation">待验证</span><p>没有可公开宣称的临床效果、真实患者案例或医院背书。</p></div></div>
+          </section>
+
+          <section class="safety-section">
+            <svg><use href="#i-shield" /></svg><div><span>安全边界</span><h2>辅助判断，不替代判断。</h2><p>LungTic 当前为科研原型。公开体验版用于 TICI 文件验收、科研数据核查和产品体验，不得直接用于患者治疗决策。正式临床应用仍需补齐医学坐标、数据保真、审计、安全、法规与临床验证。</p></div>
+          </section>
+
+          <section class="background-section"><div><span>项目背景</span><h2>来自跨专业协作的<br />4D 影像研究项目。</h2></div><div><p>项目源于大连交通大学创新训练计划，围绕医学影像、软件工程与放疗场景持续迭代。官网默认不展示成员个人信息。</p><dl><div><dt>项目类型</dt><dd>大学生创新训练项目</dd></div><div><dt>当前阶段</dt><dd>科研原型与工程验证</dd></div><div><dt>公开内容</dt><dd>产品能力、格式与研发边界</dd></div></dl></div></section>
+
+          <section class="download-section" id="download"><div><span>体验当前可验证的部分</span><h2>下载 LungTic<br />TICI Viewer</h2><p>独立本地查看器，仅公开用于文件与格式体验。临床客户端依赖医院中心服务，不在官网开放下载。</p><div class="download-meta"><span>Windows x64</span><i></i><span>版本以发布接口为准</span><i></i><span>提供 SHA-256</span></div></div><div class="download-action"><a href="#"><svg><use href="#i-download" /></svg>下载体验版</a><small>备案与正式发布完成后开放</small></div></section>
+        </main>
+
+        <footer class="site-footer"><a class="site-brand" href="#"><img src="assets/lungtic-logo.jpg" alt="" /><span>朗泰 <b>LungTic</b></span></a><p>4D CT 肺肿瘤智能辅助平台 · 科研原型</p><nav><a href="#">安全边界</a><a href="#">隐私说明</a><a href="#">版本校验</a></nav><small>© 2026 LungTic · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">辽ICP备2026005104号-2</a></small></footer>
+      </article>
+    </template>
+
+    <script src="review.js"></script>
+  </body>
+</html>

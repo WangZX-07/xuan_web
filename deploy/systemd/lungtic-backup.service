@@ -1,0 +1,12 @@
+[Unit]
+Description=Back up LungTic database, assets, metadata and configuration
+
+[Service]
+Type=oneshot
+User=lungtic-app
+Group=lungtic-runtime
+SupplementaryGroups=lungtic-web
+EnvironmentFile=/etc/lungtic/lungtic.env
+ExecStart=/opt/lungtic/current/deploy/scripts/backup.sh
+Nice=10
+IOSchedulingClass=idle

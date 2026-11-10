@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-21T00:00:00+08:00",
+  "title": "Design System: 朗泰 LungTic",
+  "extensions": {
+    "colorMeta": {
+      "brand-blue": {
+        "role": "primary",
+        "displayName": "朗泰成像蓝",
+        "canonical": "oklch(62.7% 0.165 250.4)",
+        "tonalRamp": ["#07192B", "#0C345B", "#12518E", "#176CB9", "#1E88E5", "#58A9ED", "#9CCDF5", "#EAF5FD"]
+      },
+      "hero-midnight": {
+        "role": "neutral",
+        "displayName": "阅片室午夜蓝",
+        "canonical": "oklch(17.8% 0.032 251.5)",
+        "tonalRamp": ["#030912", "#07111F", "#0D2038", "#173653", "#2A526F", "#55768E", "#9AAEBD", "#EEF3F6"]
+      },
+      "content-bg": {
+        "role": "neutral",
+        "displayName": "临床冷灰",
+        "canonical": "oklch(97.4% 0.006 248)",
+        "tonalRamp": ["#17202B", "#2D3A49", "#4C5B6A", "#71808E", "#9EABB7", "#C8D1D9", "#E3E9EE", "#F5F7FA"]
+      },
+      "success": {
+        "role": "success",
+        "displayName": "核验绿",
+        "canonical": "oklch(50.2% 0.116 166.2)",
+        "tonalRamp": ["#05271D", "#074433", "#086046", "#087A55", "#15996C", "#50B88D", "#9CD9BE", "#E9F8F1"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "官网主张", "purpose": "只用于首屏和关键叙事段。" },
+      "headline": { "displayName": "叙事标题", "purpose": "用于官网关键段落，不进入管理台控件。" },
+      "body": { "displayName": "临床正文", "purpose": "长文、帮助说明和管理台内容。" },
+      "label": { "displayName": "操作标签", "purpose": "按钮、状态和字段标签。" }
+    },
+    "shadows": [
+      { "name": "workbench-float", "value": "0 24px 64px rgba(0, 0, 0, 0.28)", "purpose": "官网首屏真实软件工作台。" },
+      { "name": "operation-popover", "value": "0 8px 24px rgba(18, 42, 66, 0.12)", "purpose": "菜单、确认浮层和拖放对象。" }
+    ],
+    "motion": [
+      { "name": "ease-reveal", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "首屏工作台揭示，320–420ms。" },
+      { "name": "ease-state", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "管理台状态切换，150–220ms。" }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "390px" },
+      { "name": "tablet", "value": "768px" },
+      { "name": "laptop", "value": "1024px" },
+      { "name": "desktop", "value": "1440px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "每屏唯一主动作。",
+      "html": "<button class=\"ds-btn-primary\">下载体验版</button>",
+      "css": ".ds-btn-primary{min-height:44px;border:0;border-radius:8px;padding:14px 22px;background:#1565C0;color:#fff;font:600 14px/1.2 system-ui;cursor:pointer;transition:background 180ms,transform 180ms}.ds-btn-primary:hover{background:#0D47A1}.ds-btn-primary:active{background:#0A3A86;transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:2px solid #1E88E5;outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "不与主动作争夺注意力的次级操作。",
+      "html": "<button class=\"ds-btn-secondary\">查看工作流</button>",
+      "css": ".ds-btn-secondary{min-height:44px;border:1px solid #DCE5EE;border-radius:8px;padding:13px 20px;background:#fff;color:#1E293B;font:600 14px/1.2 system-ui;cursor:pointer;transition:border-color 180ms,background 180ms}.ds-btn-secondary:hover{border-color:#1E88E5;background:#F5F9FD}.ds-btn-secondary:focus-visible{outline:2px solid #1E88E5;outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "始终带标签的管理台输入。",
+      "html": "<label class=\"ds-field-label\">版本号<input class=\"ds-field\" value=\"0.2.0\"></label>",
+      "css": ".ds-field-label{display:grid;gap:6px;color:#1E293B;font:600 13px/1.4 system-ui}.ds-field{min-height:44px;border:1px solid #DCE5EE;border-radius:8px;padding:10px 12px;background:#fff;color:#1E293B;font:400 14px/1.4 system-ui}.ds-field:hover{border-color:#9BBFE0}.ds-field:focus{border-color:#1E88E5;outline:2px solid rgba(30,136,229,.24);outline-offset:1px}"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "文字与形状共同表达状态。",
+      "html": "<span class=\"ds-status\"><span aria-hidden=\"true\">✓</span> 已实现</span>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:6px;border-radius:6px;padding:5px 8px;background:#E9F8F1;color:#075C40;font:600 12px/1.2 system-ui}"
+    },
+    {
+      "name": "Admin Navigation",
+      "kind": "nav",
+      "refersTo": "admin-navigation",
+      "description": "浅色、稳定、明确当前状态的控制台导航。",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item is-active\" href=\"#\">总览</a><a class=\"ds-nav-item\" href=\"#\">安装包</a><a class=\"ds-nav-item\" href=\"#\">官网内容</a></nav>",
+      "css": ".ds-nav{display:grid;width:220px;gap:4px;padding:8px;background:#fff;font:500 14px/1.2 system-ui}.ds-nav-item{min-height:40px;display:flex;align-items:center;border-radius:8px;padding:0 12px;color:#52647B;text-decoration:none}.ds-nav-item:hover{background:#F5F7FA;color:#1E293B}.ds-nav-item.is-active{background:#EAF5FD;color:#1565C0;font-weight:650}.ds-nav-item:focus-visible{outline:2px solid #1E88E5;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "临床大工作台",
+    "overview": "官网像在安静、受控的阅片室里拉开一块真实工作台；管理台则回到高可读的浅色操作环境。视觉不是 AI 科幻，而是精密仪器与临床软件的组合。",
+    "keyCharacteristics": [
+      "深蓝沉浸首屏，白色与冷灰承载长文内容。",
+      "大画幅真实工作台是主要视觉证据。",
+      "官网宽松而有戏剧性，管理台紧凑、稳定、可审计。"
+    ],
+    "rules": [
+      { "name": "The Evidence Blue Rule", "body": "品牌蓝只能标记可操作、当前、进行中。", "section": "colors" },
+      { "name": "The Two Rooms Rule", "body": "官网首屏属于深色阅片室，内容与管理台属于明亮检查台。", "section": "colors" },
+      { "name": "The Flat-by-Default Rule", "body": "阴影只说明空间或交互状态。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 使用真实 LungTic 软件界面、项目内合成数据和明确的能力状态作为核心证据。",
+      "Do 为上传、校验、扫描、发布、回滚和失败设计完整恢复路径。"
+    ],
+    "donts": [
+      "Don't 复制 DeepSeek Harness 的品牌、版式、文案或视觉资产。",
+      "Don't 使用紫色霓虹、渐变文字、装饰网格、玻璃卡片堆叠和虚假大数字。",
+      "Don't 把生成式 CT 图像或未验证结果冒充产品输出。"
+    ]
+  }
+}
